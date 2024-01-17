@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_TRIGGER_OGV.Vistas.Categoria">
+    <Grid RowDefinitions="auto,*"
+          BackgroundColor="White">
+        <StackLayout HeightRequest="180"
+                     Margin="10">
+            <Label Text="Posibles Regalos"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   TextColor="#EF506B"
+                   />
+            <Label Text="Data Trigger"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   TextColor="#8D8D8D"
+                   />
+            <CollectionView ItemsSource="{Binding ListaCategorias}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5"
+                                       Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame Margin="0,5,5,5"
+                                   Padding="8"
+                                   BackgroundColor="{Binding backgroundColor}"
+                                   CornerRadius="35"
+                                   HeightRequest="50"
+                                   WidthRequest="135"
+                                   HasShadow="False"
+                                   VerticalOptions="Center">
+                                <Grid ColumnDefinitions="auto,*"
+                                      RowSpacing="0"
+                                      VerticalOptions="Center">
+                                    <BoxView BackgroundColor="White"
+                                             CornerRadius="25"
+                                             HeightRequest="50"
+                                             WidthRequest="50"/>
+                                    <Image Source="{Binding imagen}"
+                                           HeightRequest="35"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="CenterAndExpand"
+                                           WidthRequest="35"/>
+                                    <StackLayout Grid.Column="1">
+                                        <Label Text="{Binding descripcion}"
+                                               FontSize="16"
+                                               VerticalOptions="Start"
+                                               TextColor="{Binding textColor}"/>
+                                        <Label Text="{Binding numeroItem}"
+                                               FontSize="9"
+                                               VerticalOptions="Start"
+                                               TextColor="{Binding textColor}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
